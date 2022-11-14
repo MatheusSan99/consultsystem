@@ -19,5 +19,7 @@ Route::get('/', [AdminController::class, 'index'])->name('adminindex');
 
 
 Route::get('/admin/listadepacientes', [AdminPacientsController::class, 'list'])->name('adminpacientslist');
+Route::get('/admin/novoPaciente', [AdminPacientsController::class, 'createPacient'])->name('createPacient');
+Route::post('/admin/novoPaciente', [AdminPacientsController::class, 'storeNewPacient'])->name('storenewpacient');
 Route::get('/admin/editarpaciente/{id}', [AdminPacientsController::class, 'editPacient'])->name('editpacient');
 Route::put('/admin/editarpaciente/{id}', [AdminPacientsController::class, 'updatePacient'])->name('updatepacient');

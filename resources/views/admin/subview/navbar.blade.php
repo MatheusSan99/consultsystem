@@ -13,6 +13,12 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
+                    <a href="{{route('createPacient')}}">
+                        <i class="bi bi-circle"></i>
+                        <span>Inserir Novo Paciente</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('adminpacientslist')}}">
                         <i class="bi bi-circle"></i>
                         <span>Listar Pacientes</span>

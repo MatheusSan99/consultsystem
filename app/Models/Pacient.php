@@ -11,6 +11,16 @@ class Pacient extends Model
 
     protected $fillable = ['name','birth_date','cpf','phone_number_list_id','email','cep','adress','adress_number','responsable_id'];
 
+    public function getPhoneNumberListId()
+    {
+        return $this->attributes['phone_number_list_id'];
+    }
+
+    public function setPhoneNumberListId($id)
+    {
+            $this->attributes['phone_number_list_id'] = $id;
+    }
+
     public function doctor()
     {
         return $this->hasOne(Doctor::class);
