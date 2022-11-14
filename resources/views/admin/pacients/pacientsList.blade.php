@@ -46,20 +46,10 @@
 {{--                            @endforeach--}}
 
                             <td>
-                                <a href="">
+                                <a href="{{route('editpacient', $pacient->id)}}">
                                     <img src="{{asset('img/icone/edit.png')}}" width="20px" alt="editar item">
                                 </a>
                             </td>
-
-
-                            <form method="POST" >
-                                @method('DELETE')
-                                @csrf
-                                <td>
-                                    <button type="submit" class="border-0"><img src="{{asset('img/icone/recycle-bin.png')}}" width="20px" alt="apagar item">
-                                    </button>
-                                </td>
-                            </form>
                         </tr>
                     @endforeach
                     </tbody>

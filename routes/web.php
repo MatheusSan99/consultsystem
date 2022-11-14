@@ -19,3 +19,5 @@ Route::get('/', [AdminController::class, 'index'])->name('adminindex');
 
 
 Route::get('/admin/listadepacientes', [AdminPacientsController::class, 'list'])->name('adminpacientslist');
+Route::get('/admin/editarpaciente/{id}', [AdminPacientsController::class, 'editPacient'])->name('editpacient');
+Route::put('/admin/editarpaciente/{id}', [AdminPacientsController::class, 'updatePacient'])->name('updatepacient');
