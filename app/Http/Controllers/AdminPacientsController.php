@@ -32,26 +32,41 @@ class AdminPacientsController extends Controller
         $newPacient['phone_number_list_id'] = $listId->id;
 
         Pacient::create($newPacient);
-        dd($newPacient);
 
-        return Redirect::back();
+        return view('admin.pacients.pacientsList');
     }
     public function editPacient($id)
     {
         $pacient = Pacient::all();
         $pacient = $pacient->find($id);
-        return view('admin.pacients.editPacient', compact('pacient'));
+        $phoneNumber = PhoneNumberList::find($pacient->getPhoneNumberListId());
+
+        return view('admin.pacients.editPacient', compact('pacient','phoneNumber'));
 
     }
 
-    public function updatePacient(int $id, PacientRequest $pacientRequest)
+    public function updatePacient(int $id, PacientRequest $pacientRequest, PhoneNumberRequest $phoneNumberRequest)
     {
         $pacient = Pacient::all();
+        $phone = PhoneNumberList::all();
         $pacient = $pacient->find($id);
+        $phone = $phone->find($pacient->phone_number_list_id);
 
         $newPacient = $pacientRequest->validated();
         $pacient->fill($newPacient);
         $pacient->saveOrFail();
+        $newPhoneNumber = $phoneNumberRequest->validated();
+        $phone->fill($newPhoneNumber);
+        $phone->saveOrFail();
+        return Redirect::route('adminpacientslist');
+    }
+
+    public function destroyPacient(int $id, Pacient $pacient, PhoneNumberList $phoneNumberList, Request $request)
+    {
+        $pacient = $pacient->find($id);
+        $pacient->delete();
+
+//        $transationMessage->returnDestroyProductMessage($request,$productNome);
 
         return Redirect::route('adminpacientslist');
     }

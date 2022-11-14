@@ -7,7 +7,7 @@
                 <h5 class="card-title text-center">Novo Cadastro</h5>
                 <form enctype="multipart/form-data"
                       method="POST"
-                      action="{{route('storenewpacient')}}">
+                      action="{{route('storeNewPacient')}}">
                     @csrf
                     <div class="row mb-3">
                         <label for="name" class="col-sm-2 col-form-label">Nome</label>

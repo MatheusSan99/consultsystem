@@ -19,11 +19,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('adminpacientslist')}}">
+                    <a href="{{route('adminPacientsList')}}">
                         <i class="bi bi-circle"></i>
                         <span>Listar Pacientes</span>
                     </a>
                 </li>
+
             </ul>
         </li>
         <li class="nav-item  bg-light">
@@ -46,9 +47,8 @@
                 <i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li> <a href=""> <i class="bi bi-circle"></i><span>Listar Funções</span> </a></li>
-                <li> <a href=""> <i class="bi bi-circle"></i><span>Adicionar Função</span> </a></li>
-                <li> <a href=""> <i class="bi bi-circle"></i><span>Editar Função</span> </a></li>
+                <li> <a href="{{route('specialtylist')}}"> <i class="bi bi-circle"></i><span>Listar Funções</span> </a></li>
+                <li> <a href="{{route('createSpecialty')}}"> <i class="bi bi-circle"></i><span>Adicionar Função</span> </a></li>
             </ul>
         </li>
 

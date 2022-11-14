@@ -14,36 +14,27 @@
                 @if(!empty($message))
                     <div class="text-white alert alert-success bg-success text-center">{{$message}}</div>
                 @endif
-                <h5 class="card-title text-center">Lista de Pacientes</h5>
+                <h5 class="card-title text-center">Lista de Especialidades</h5>
                 <table class="table table-striped table-hover table-scrollable">
                     <thead>
                     <tr>
                         <th scope="col">Nome</th>
-                        <th scope="col">Cpf</th>
-                        <th scope="col">Telefone</th>
-                        <th scope="col">Cep</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($pacients as $pacient)
+                    @foreach ($specialtys as $specialty)
                         <tr>
 
-                            <td>{{ $pacient->name }}</td>
-
-                            <td>{{ $pacient->cpf }}</td>
-
-                            <td>{{ $pacient->phone_number_list_id }}</td>
-
-                            <td>{{ $pacient->cep }}</td>
+                            <td>{{ $specialty->name }}</td>
 
                             <td>
-                                <a href="{{route('editPacient', $pacient->id)}}">
+                                <a href="{{route('editSpecialty', $specialty->id)}}">
                                     <img src="{{asset('img/icone/edit.png')}}" width="20px" alt="editar item">
                                 </a>
                             </td>
-                            <form method="POST" action="{{route('destroyPacient', $pacient->id)}}" onsubmit="return confirm('Deseja Remover {{addslashes($pacient->name)}}? Esta ação não poderá ser desfeita.')">
+                            <form method="POST" action="{{route('deleteSpecialty', $specialty->id)}}" onsubmit="return confirm('Deseja Remover {{addslashes($pacient->name)}}? Esta ação não poderá ser desfeita.')">
                                 @method('DELETE')
                                 @csrf
                                 <td>
