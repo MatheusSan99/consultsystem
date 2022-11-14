@@ -34,9 +34,9 @@
                 <i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="orders-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li> <a href=""><i class="bi bi-circle"></i><span>Listar Médicos</span></a></li>
-                <li> <a href=""><i class="bi bi-circle"></i><span>Adicionar Médico</span></a></li>
-                <li> <a href=""><i class="bi bi-circle"></i><span>Editar Médico</span></a></li>
+                <li> <a href="{{route('adminDoctorsList')}}"><i class="bi bi-circle"></i><span>Listar Médicos</span></a></li>
+                <li> <a href="{{route('createDoctor')}}"><i class="bi bi-circle"></i><span>Adicionar Médico</span></a></li>
+
             </ul>
         </li>
 

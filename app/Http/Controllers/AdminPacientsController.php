@@ -37,8 +37,7 @@ class AdminPacientsController extends Controller
     }
     public function editPacient($id)
     {
-        $pacient = Pacient::all();
-        $pacient = $pacient->find($id);
+        $pacient = Pacient::find($id);
         $phoneNumber = PhoneNumberList::find($pacient->getPhoneNumberListId());
 
         return view('admin.pacients.editPacient', compact('pacient','phoneNumber'));
@@ -61,12 +60,11 @@ class AdminPacientsController extends Controller
         return Redirect::route('adminpacientslist');
     }
 
-    public function destroyPacient(int $id, Pacient $pacient, PhoneNumberList $phoneNumberList, Request $request)
+    public function destroyPacient(int $id, Pacient $pacient)
     {
         $pacient = $pacient->find($id);
         $pacient->delete();
 
-//        $transationMessage->returnDestroyProductMessage($request,$productNome);
 
         return Redirect::route('adminpacientslist');
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDoctorsController;
 use App\Http\Controllers\AdminFunctionsController;
 use App\Http\Controllers\AdminPacientsController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'index'])->name('adminindex');
 
+Route::get('/admin/listademedicos', [AdminDoctorsController::class, 'doctorsList'])->name('adminDoctorsList');
+Route::get('/admin/novomedico', [AdminDoctorsController::class, 'createDoctor'])->name('createDoctor');
+Route::post('/admin/novomedico', [AdminDoctorsController::class, 'storeNewDoctor'])->name('storeNewDoctor');
+Route::get('/admin/editarmedico/{id}', [AdminDoctorsController::class, 'editDoctor'])->name('editDoctor');
+Route::put('/admin/editarmedico/{id}', [AdminDoctorsController::class, 'updateDoctor'])->name('updateDoctor');
+Route::delete('/admin/listademedicos/apagar/{id}', [AdminDoctorsController::class, 'destroyDoctor'])->name('destroyDoctor');
+
+
+
 //Crud Pacientes
 Route::get('/admin/listadepacientes', [AdminPacientsController::class, 'list'])->name('adminPacientsList');
 Route::get('/admin/novoPaciente', [AdminPacientsController::class, 'createPacient'])->name('createPacient');
@@ -27,10 +37,9 @@ Route::put('/admin/editarpaciente/{id}', [AdminPacientsController::class, 'updat
 Route::delete('/admin/listadepacientes/apagar/{id}', [AdminPacientsController::class, 'destroyPacient'])->name('destroyPacient');
 
 //Crud Especialidades
-
 Route::get('/admin/especialidade', [AdminFunctionsController::class, 'specialtyList'])->name('specialtylist');
 Route::get('/admin/novaespecialidade', [AdminFunctionsController::class, 'createSpecialty'])->name('createSpecialty');
-Route::post('/admin/novaespecialidade', [AdminFunctionsController::class, 'storeSpecialty'])->name('storeSpecialty');
-Route::get('/admin/editarespecialidade/{id}', [AdminPacientsController::class, 'editSpecialty'])->name('editSpecialty');
-Route::put('/admin/editarespecialidade/{id}', [AdminPacientsController::class, 'updateSpecialty'])->name('updateSpecialty');
+Route::post('/admin/novaespecialidade', [AdminFunctionsController::class, 'storeNewSpecialty'])->name('storeNewSpecialty');
+Route::get('/admin/editarespecialidade/{id}', [AdminFunctionsController::class, 'editSpecialty'])->name('editSpecialty');
+Route::put('/admin/editarespecialidade/{id}', [AdminFunctionsController::class, 'updateSpecialty'])->name('updateSpecialty');
 Route::delete('/admin/especialidade/apagar/{id}', [AdminFunctionsController::class, 'deleteSpecialty'])->name('deleteSpecialty');

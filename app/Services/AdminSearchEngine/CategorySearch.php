@@ -10,12 +10,12 @@ class CategorySearch implements SearchEngine
 
     public function search(Request $request)
     {
-        $categories = Category::query();
+        $specialtys = Category::query();
 
-        $categories->when($request->search, function ($query, $campoDePesquisa){
+        $specialtys->when($request->search, function ($query, $campoDePesquisa){
             $query->where('name', 'like', '%' . $campoDePesquisa . '%');
         });
 
-        return $categories->paginate(5);
+        return $specialtys->paginate(5);
     }
 }
