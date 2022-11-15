@@ -5,7 +5,7 @@
 
 ## ℹ️ O que é?
 
-Trata-se de uma plataforma onde se pode cadastrar clients e profissionais de qualquer tipo, seguindo as categorias criadas (foi usado para teste um sistema hospitalar, porém funcionaria com qualquer coisa como por exemplo: cabeleireiro, entregas no geral, agendamentos, etc).
+Trata-se de uma plataforma onde se pode cadastrar clientes e profissionais de qualquer tipo, seguindo as categorias criadas (foi usado para teste um sistema hospitalar, porém funcionaria com qualquer coisa como por exemplo: cabeleireiro, entregas no geral, agendamentos, etc).
 
 ## 🔧 Como foi desenvolvido? 
 Utilizando os conceitos estudados até o momento foi construído um sistema de agendamento de consultas  com banco de dados MySql 
