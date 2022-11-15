@@ -31,6 +31,8 @@ class PacientRequest extends FormRequest
             'email' => 'nullable|email',
             'cep' => 'nullable|string',
             'adress' => 'nullable|string',
+            'responsable_name' => 'string',
+            'responsable_cpf' => 'string',
             'adress_number' => 'nullable|string',
             'responsable_id' => 'nullable|string',
         ];

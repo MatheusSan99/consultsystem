@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDoctorsController;
 use App\Http\Controllers\AdminFunctionsController;
 use App\Http\Controllers\AdminPacientsController;
+use App\Http\Controllers\ConsultController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,9 @@ Route::get('/admin/editarmedico/{id}', [AdminDoctorsController::class, 'editDoct
 Route::put('/admin/editarmedico/{id}', [AdminDoctorsController::class, 'updateDoctor'])->name('updateDoctor');
 Route::delete('/admin/listademedicos/apagar/{id}', [AdminDoctorsController::class, 'destroyDoctor'])->name('destroyDoctor');
 
-
+Route::get('/admin/listadeconsultas', [ConsultController::class, 'consultList'])->name('consultList');
+Route::get('/admin/novaconsulta', [ConsultController::class, 'newConsult'])->name('createConsult');
+Route::post('/admin/novaconsulta', [ConsultController::class, 'storeNewConsult'])->name('storeNewConsult');
 
 //Crud Pacientes
 Route::get('/admin/listadepacientes', [AdminPacientsController::class, 'list'])->name('adminPacientsList');

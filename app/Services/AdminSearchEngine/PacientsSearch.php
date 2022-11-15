@@ -13,7 +13,7 @@ class PacientsSearch implements SearchEngine
         $pacients = Pacient::query();
 
         $pacients->when($request->search, function ($query, $campoDePesquisa){
-            $query->where('name', 'like', '%' . $campoDePesquisa . '%');
+            $query->where('name', 'like', '%' . $campoDePesquisa . '%')->orWhere('cpf', 'like', '%' . $campoDePesquisa . '%');
         });
 
         return $pacients->paginate(5);

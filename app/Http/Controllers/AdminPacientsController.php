@@ -7,6 +7,9 @@ use App\Http\Requests\PhoneNumberRequest;
 use App\Models\Pacient;
 use App\Models\PhoneNumberList;
 use App\Services\AdminSearchEngine\PacientsSearch;
+use App\Services\TransationMessage;
+use DateTime;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -18,22 +21,47 @@ class AdminPacientsController extends Controller
         return view('admin.pacients.pacientsList',compact('pacients'));
     }
 
-    public function createPacient()
+    public function createPacient(Request $request)
     {
-        return view('admin.pacients.newPacient');
+        $message = $request->session()->get('message');
+        $request->session()->remove('message');
+        return view('admin.pacients.newPacient', compact('message'));
     }
 
-    public function storeNewPacient(PacientRequest $pacientRequest, PhoneNumberRequest $phoneNumberRequest)
+    /**
+     * @throws Exception
+     */
+    public function storeNewPacient(PacientRequest $pacientRequest, PhoneNumberRequest $phoneNumberRequest, TransationMessage $transationMessage)
     {
-        $pacient = Pacient::all();
+        $pacients = Pacient::all();
+        $actualDate = new DateTime();
         $newPacient = $pacientRequest->validated();
+        $birthDateClient = new DateTime($newPacient['birth_date']);
+        $dateCalc = $birthDateClient->diff($actualDate);
+
+        if (!empty($newPacient['responsable_cpf'])) {
+            $newPhoneNumber = $phoneNumberRequest->validated();
+            $listId = PhoneNumberList::create($newPhoneNumber);
+            $newPacient['phone_number_list_id'] = $listId->id;
+
+            Pacient::create($newPacient);
+
+            return view('admin.pacients.pacientsList',compact('pacients'));
+        }
+
+        if($dateCalc->days < 6573) {
+            $transationMessage->returnIncorrectDate($pacientRequest);
+            return Redirect::back()->with(['status' => 'Erro de Idade']);
+        }
+
         $newPhoneNumber = $phoneNumberRequest->validated();
         $listId = PhoneNumberList::create($newPhoneNumber);
         $newPacient['phone_number_list_id'] = $listId->id;
 
         Pacient::create($newPacient);
 
-        return view('admin.pacients.pacientsList');
+        return Redirect::route('adminPacientsList');
+
     }
     public function editPacient($id)
     {
@@ -63,9 +91,9 @@ class AdminPacientsController extends Controller
     public function destroyPacient(int $id, Pacient $pacient)
     {
         $pacient = $pacient->find($id);
+
         $pacient->delete();
 
-
-        return Redirect::route('adminpacientslist');
+        return Redirect::route('adminPacientsList');
     }
 }

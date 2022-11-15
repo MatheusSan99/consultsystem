@@ -1,7 +1,7 @@
 <aside id="sidebar" class="sidebar bg-dark">
     <ul class="sidebar-nav " id="sidebar-nav">
 
-        <li class="nav-item"><a class="nav-link " href="">
+        <li class="nav-item"><a class="nav-link " href="/">
                 <img src="{{asset('img/icone/dashboard.png')}}" class="mt-4" width="30px" alt="retornar"><span class="dropdown-menu-space">Voltar ao Dashboard</span></a>
         </li>
 

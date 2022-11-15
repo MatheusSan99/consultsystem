@@ -9,11 +9,16 @@ class Pacient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','birth_date','cpf','phone_number_list_id','email','cep','adress','adress_number','responsable_id'];
+    protected $fillable = ['name','birth_date','cpf','phone_number_list_id','responsable_name','responsable_cpf','email','cep','adress','adress_number','responsable_id'];
 
     public function getPhoneNumberListId()
     {
         return $this->attributes['phone_number_list_id'];
+    }
+
+    public function consult()
+    {
+        return $this->hasMany(Consult::class);
     }
 
     public function setPhoneNumberListId($id)

@@ -13,7 +13,7 @@ class DoctorsSearch implements SearchEngine
         $doctors = Doctor::query();
 
         $doctors->when($request->search, function ($query, $campoDePesquisa){
-            $query->where('name', 'like', '%' . $campoDePesquisa . '%');
+            $query->where('crm', 'like', '%' . $campoDePesquisa . '%')->orWhere('function_id', 'like', '%' . $campoDePesquisa . '%');
         });
 
         return $doctors->paginate(5);

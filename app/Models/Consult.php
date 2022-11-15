@@ -11,4 +11,11 @@ class Consult extends Model
     protected $fillable = ['doctor_id','pacient_id','date'];
     protected $table = 'consult';
 
+    public function doctor()
+    {
+        $this->hasOne(Doctor::class);
+    }
+    public function client() {
+        $this->hasOne(Pacient::class);
+    }
 }

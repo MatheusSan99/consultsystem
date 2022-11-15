@@ -33,25 +33,25 @@
                         <div class="col-xxl-4 col-md-6 card-padding">
                             <div class="card info-card revenue-card">
                                 <div class="card-body">
-                                    <h5 class="card-title text-dark">Receita</h5>
+                                    <h5 class="card-title text-dark">Dados</h5>
                                     <div class="d-flex align-items-center">
                                         <div
                                             class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <img src="{{asset('img/icone/cifrao.png')}}" width="30px"
+                                            <img src="{{asset('img/icone/people.png')}}" width="30px"
                                                  alt="icone-cifrao"></div>
                                         <div class="ps-3">
                                             <h6 class="text-dark">
-                                                R$ </h6>
+                                                Informações </h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="alert-button">
-                            <button class="button-alert-admin"
-                                    onclick="alert('Bem-Vindos Ao Consult System, O Painel De Admin É Protegido Por Middleware, Porém Está Aberto Temporariamente Para Apresentação!')">
-                                Convidados Cliquem Aqui
-                            </button>
+                            <a href="{{ route('createConsult') }}"><button class="button-alert-admin">Agendar Consulta</button></a>
+                        </div>
+                        <div class="alert-button">
+                            <a href="{{route('consultList')}}"><button class="button-alert-admin">Ver Consultas</button></a>
                         </div>
                         <div class="col-xxl-4 col-xl-12  card-padding">
                             <div class="card info-card customers-card">

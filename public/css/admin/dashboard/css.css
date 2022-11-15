@@ -58,6 +58,7 @@
     margin-top: 20px;
 }
 .alert-button {
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -70,4 +71,7 @@
 }
 .button-alert-admin:hover {
     transform: scale(1.25);
+}
+#other-button {
+
 }

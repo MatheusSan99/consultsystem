@@ -14,6 +14,10 @@ class Doctor extends Model
     {
         return $this->hasMany(Pacient::class);
     }
+    public function consult()
+    {
+        return $this->hasMany(Consult::class);
+    }
 
     public function function()
     {
