@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cpf');
             $table->integer('phone_number_list_id');
             $table->string('cnpj');
+            $table->string('email');
             $table->string('adress');
             $table->string('city');
             $table->string('responsable_name');
