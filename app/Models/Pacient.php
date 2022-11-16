@@ -9,7 +9,7 @@ class Pacient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','birth_date','cpf','phone_number_list_id','responsable_name','responsable_cpf','email','cep','adress','adress_number','responsable_id'];
+    protected $fillable = ['name','city','birth_date','cpf','phone_number_list_id','responsable_name','responsable_cpf','email','cep','adress','adress_number','responsable_id'];
 
     public function getPhoneNumberListId()
     {
