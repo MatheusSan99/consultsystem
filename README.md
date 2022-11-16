@@ -20,9 +20,13 @@ Está incluído dentro do sistema áreas para: visualização de clientes, profi
 
 - Antes de tudo, é necessário criar um schema no sql com o nome que preferir, e no arquivo .env usar esse mesmo database.
 
+- Não esqueça de renomear o .env.example para .env e colocar o nome do database que criou, caso contrário o servidor não funcionará
+
 - Para fazer o projeto funcionar, clonar o repositório, dar um composer install, npm install, composer update, CONFIGURAR O SEU PROPRIO MYSQL, recomendo criar um database vazio só para teste, e não se esqueça de ligar o servidor MYSQL, após isso, rodar as migrations (php artisan migrate:fresh).
 
 - Subir o servidor com php artisan serve e acessar o projeto.
+
+- Caso peça uma key rode o comando  php artisan key:generate
 
 - Caso encontre algum erro, sinta-se livre para me contatar.
 ## 📚 Autor
