@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('cpf');
             $table->integer('phone_number_list_id');
-            $table->string('cpf');
+            $table->string('cnpj');
             $table->string('adress');
             $table->string('city');
             $table->string('responsable_name');
