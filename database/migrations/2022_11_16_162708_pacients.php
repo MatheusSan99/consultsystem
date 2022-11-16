@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('cep');
             $table->string('adress');
             $table->string('city');
-            $table->string('responsable_name');
-            $table->string('responsable_cpf');
+            $table->string('responsable_name')->nullable();
+            $table->string('responsable_cpf')->nullable();
             $table->timestamps();
         });
     }

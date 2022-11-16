@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('phone_number_list', function (Blueprint $table) {
             $table->id();
             $table->string('phone_number_first');
-            $table->string('phone_number_second');
-            $table->string('phone_number_third');
+            $table->string('phone_number_second')->nullable();
+            $table->string('phone_number_third')->nullable();
             $table->timestamps();
         });
     }

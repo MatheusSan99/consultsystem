@@ -38,7 +38,6 @@ class AdminPacientsController extends Controller
         $newPacient = $pacientRequest->validated();
         $birthDateClient = new DateTime($newPacient['birth_date']);
         $dateCalc = $birthDateClient->diff($actualDate);
-        dd($pacientRequest);
         if (!empty($newPacient['responsable_cpf'])) {
             $newPhoneNumber = $phoneNumberRequest->validated();
             $listId = PhoneNumberList::create($newPhoneNumber);
