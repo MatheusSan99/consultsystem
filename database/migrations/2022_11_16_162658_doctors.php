@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('function_id');
             $table->string('crm');
-            $table->integer('pacient_id');
+            $table->integer('pacient_id')->nullable();
             $table->timestamps();
         });
     }
